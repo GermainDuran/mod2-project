@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Region.destroy_all
+State.destroy_all
 
 region_list = [ "East Coast", "West Coast", "South" , "Midwest", "West" ]
 

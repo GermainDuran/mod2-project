@@ -1,5 +1,5 @@
 class PhrasesController < ApplicationController
-  before_action :set_phrase, only: [:new,:create,:show,:edit,:update]
+  before_action :set_phrase, only: [:new,:show,:edit,:update]
   def index
     @phrases = Phrase.all
   end
@@ -8,11 +8,17 @@ class PhrasesController < ApplicationController
   end
 
   def new
+  end
 
+  def state_select
+    @region = Region.find params[:region]
+    render :new
   end
 
   def create
-    if phrase.save
+    byebug
+    @phrase = Phrase.new phrase_params
+    if @phrase.save
       redirect_to phrase_path @phrase
     else
       redirect_to new_phrase_path
@@ -20,6 +26,12 @@ class PhrasesController < ApplicationController
   end
 
   def edit
+
+  end
+
+  def edit_states
+    @region = Region.find params[:region]
+    render :edit
   end
 
   def update
@@ -48,6 +60,6 @@ class PhrasesController < ApplicationController
     end
 
     def phrase_params
-
+      params.require(:phrase).permit(:content,:state_id,:user_id)
     end
 end

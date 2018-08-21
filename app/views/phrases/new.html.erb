@@ -1,1 +1,26 @@
-<h1></h1>
+<h1>Create a New Phrase</h1>
+
+<fieldset>
+  <% if !@region %>
+    <%= form_tag("/phrases/state_select", method: "post") do %>
+      <%= select_tag "region", options_from_collection_for_select(Region.all, "id", "name") %>
+      <%= submit_tag("Next") %>
+    <% end %>
+  <% else  %>
+    <p>Selected region: <%= @region.name %></p>
+
+    <%= form_tag("/phrases", method: "post") do %>
+      <%= label_tag "Select a State:" %><br>
+      <%= select_tag "phrase[state_id]", options_from_collection_for_select(@region.states, :id, :abv) %><br>
+
+      <%= label_tag "Phrase" %><br>
+      <%= text_area_tag "phrase[content]" %><br>
+
+      <%= link_to "Back", new_phrase_path %>
+
+      <input type="hidden" name="phrase[user_id]" value="<%= session[:user_id] %>">
+      <input type="hidden" name="phrase[region_id]" value="<%= @region.id %>">
+      <%= submit_tag("Create Phrase") %>
+    <% end %>
+  <% end %>
+</fieldset>
