@@ -1,5 +1,5 @@
 class PhrasesController < ApplicationController
-  before_action :set_phrase, only [:new,:create,:show,:edit,:update]
+  before_action :set_phrase, only: [:new,:create,:show,:edit,:update]
   def index
     @phrases = Phrase.all
   end

@@ -1,0 +1,11 @@
+<h1><%= @user.username %></h1>
+
+<h3>Submitted Phrases</h3>
+
+<% if !@user.phrases.empty? %>
+  <ul>
+    <%= @user.phrases.each do |phrase| %>
+      <li><%= phrase.content %></li>
+    <% end %>
+  </ul>
+<% end %>

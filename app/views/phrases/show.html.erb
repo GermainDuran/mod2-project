@@ -1,0 +1,15 @@
+<h2>@phrase.content</h2>
+<h4>Created by: <%= @phrase.user.username %></h4>
+
+<% @phrase.comments.each do |comment| %>
+  <p><%= comment.user_name %> says:</p>
+  <fieldset>
+    <%= comment.content %>
+  </fieldset>
+<% end %>
+
+<% if session[:user_id] == @phrase.user.id %>
+  <%= form_tag('/phrases/<%= @phrase.id %>/edit') do %>
+  <%= submit_tag "Edit Phrase" %>
+  <% end %>
+<% end %>
