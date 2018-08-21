@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :phrases
+  has_many :comments
   has_many :states, through: :phrases
   validates_confirmation_of :password
   attr_accessor :password_confirmation
