@@ -19,7 +19,11 @@
       <%= text_field_tag "phrase[content]" %><br>
 
       <%= label_tag "Describe your new phrase:" %><br>
-      <%= text_area_tag "phrase[description]" %>
+      <%= text_area_tag "phrase[description]" %><br>
+
+      <em>Optional:</em><br>
+      <%= label_tag "Area or City" %><br>
+      <%= text_field_tag placeholder: "E.g. South Jersey, New York City, SoCal"%><br>
 
       <%= link_to "Back", new_phrase_path %>
 

@@ -24,13 +24,21 @@
 
   </header>
   <body>
-    <div class="">
-      <form class="" action="/categorize" method="post">
 
-      </form>
-      <p>Categorize Terms by:</p>
-        <li><%= link_to "Region", %></li>
+    <% if !@category %>
+      <div class="">
+        <%= form_tag '/phrases/categorize',method: "post" do %>
+          <p>Categorize Terms by:</p>
+          <select class="" name="category">
+            <option value="region">Region</option>
+            <option value="state">State</option>
+          </select>
+          <%= submit_tag "Categorize!" %>
+        <% end %>
+      </div>
 
-    </div>
+    <% else %>
+      <%= render 'categorize' %>
+    <% end %>
   </body>
 </html>

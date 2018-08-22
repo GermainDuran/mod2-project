@@ -1,0 +1,17 @@
+<h5>Categorizing by: <%= @category.capitalize %></h5>
+
+<% if @category == "region" %>
+    <% Region.all.each do |region| %>
+      <%= region.name %><br>
+      <% region.phrases.each do |phrase|%>
+        <li><%= link_to phrase.content, phrase_path(phrase) %></li>
+      <% end %>
+    <% end %>
+<% else %>
+  <% State.all.each do |state| %>
+    <%= state.name %><br>
+    <% state.phrases.each do |phrase|%>
+      <li><%= link_to phrase.content, phrase_path(phrase) %></li>
+    <% end %>
+  <% end %>
+<% end %>

@@ -3,6 +3,7 @@ class CreatePhrases < ActiveRecord::Migration[5.2]
     create_table :phrases do |t|
       t.string :content
       t.string :description
+      t.string :area_or_city
       t.integer :state_id
       t.integer :user_id
 

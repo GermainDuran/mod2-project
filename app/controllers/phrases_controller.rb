@@ -54,6 +54,11 @@ class PhrasesController < ApplicationController
     render :search
   end
 
+  def categorize
+    @category = params[:category]
+    render :home
+  end
+
   private
 
     def set_phrase

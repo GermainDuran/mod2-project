@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2018_08_22_171421) do
   create_table "phrases", force: :cascade do |t|
     t.string "content"
     t.string "description"
+    t.string "area_or_city"
     t.integer "state_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
