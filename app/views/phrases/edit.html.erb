@@ -1,7 +1,23 @@
 <fieldset>
+  <legend>Edit Phrase</legend>
+  <% if !@region %>
+    <%= form_tag("/phrases/#{@phrase.id}/edit_state", method: "patch") do %>
+      <%= select_tag "region", options_from_collection_for_select(Region.all, "id", "name", @phrase.region_id) %>
+      <%= link_to "Back", phrase_path(@phrase) %>
+      <%= submit_tag("Next") %>
+    <% end %>
+  <% else %>
+    <p>Region: <%= @region.name %></p>
 
-  <%= form_tag '/phrases/<%= @phrase.id %>/edit_states' method: :post %>
+    <%= form_for @phrase do |f| %>
+      <%= f.label "Edit State" %><br>
+      <%= f.collection_select :state_id, @region.states, :id, :abv %><br>
+
+      <%= f.label "Edit Phrase" %><br>
+      <%= f.text_area :content %><br>
+
+      <%= f.submit %>
+    <% end %>
 
   <% end %>
-
 </fieldset>

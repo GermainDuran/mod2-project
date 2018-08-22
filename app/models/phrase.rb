@@ -2,12 +2,17 @@ class Phrase < ApplicationRecord
   has_many :comments
   belongs_to  :state
   belongs_to :user
-  attr_accessor :region_id
   validate :not_empty
+  validates :content, uniqueness: true
 
-  def region
-    region = Region.find(region_id)
-    region
+  attr_writer :region_id
+
+  def region_id
+    state.region.id
+  end
+  
+  def region_name
+    state.region.name
   end
 
   def not_empty

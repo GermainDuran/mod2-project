@@ -8,6 +8,8 @@
   </fieldset>
 <% end %>
 
+<%= @phrase.region_name %>, <%= @phrase.state.name %>
+
 <% if session[:user_id] == @phrase.user.id %>
   <form class="" action="/phrases/<%=@phrase.id%>/edit" method="get">
     <input type="submit" name="" value="Edit Phrase">

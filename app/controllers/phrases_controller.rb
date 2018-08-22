@@ -1,5 +1,5 @@
 class PhrasesController < ApplicationController
-  before_action :set_phrase, only: [:new,:show,:edit,:update]
+  before_action :set_phrase, only: [:new,:show,:edit,:update,:edit_state]
   def index
     @phrases = Phrase.all
   end
@@ -16,7 +16,6 @@ class PhrasesController < ApplicationController
   end
 
   def create
-    byebug
     @phrase = Phrase.new phrase_params
     if @phrase.save
       redirect_to phrase_path @phrase
@@ -29,7 +28,7 @@ class PhrasesController < ApplicationController
 
   end
 
-  def edit_states
+  def edit_state
     @region = Region.find params[:region]
     render :edit
   end

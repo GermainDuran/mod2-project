@@ -6,7 +6,7 @@
       <%= select_tag "region", options_from_collection_for_select(Region.all, "id", "name") %>
       <%= submit_tag("Next") %>
     <% end %>
-  <% else  %>
+  <% else %>
     <p>Selected region: <%= @region.name %></p>
 
     <%= form_tag("/phrases", method: "post") do %>
@@ -19,7 +19,6 @@
       <%= link_to "Back", new_phrase_path %>
 
       <input type="hidden" name="phrase[user_id]" value="<%= session[:user_id] %>">
-      <input type="hidden" name="phrase[region_id]" value="<%= @region.id %>">
       <%= submit_tag("Create Phrase") %>
     <% end %>
   <% end %>
