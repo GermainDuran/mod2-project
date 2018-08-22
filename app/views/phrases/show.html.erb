@@ -1,7 +1,28 @@
-<h2><%= @phrase.content %></h2>
-<h4>Created by: <%= @phrase.user.username %></h4>
+<h3>"<%= @phrase.content %>"</h3>
 
-<%= @phrase.region_name %>, <%= @phrase.state.name %>
+<% if @phrase.description %>
+  Description: <em><%= @phrase.description %></em>
+<% end %><br>
+
+<%= @phrase.region_name %>, <%= @phrase.state.name %><br>
+<p>Rating:
+<% if @phrase.ratings.empty? %>
+  <em>Not yet rated</em>
+<% else %>
+  <%= @phrase.avg_rating %> Stars
+<% end %></p>
+
+posted by: <%= @phrase.user.username %><br>
+
+
+Give it a Rating:
+<%= form_for Rating.new,{url: "/phrases/#{@phrase.id}/rate", method: "post"} do |f| %>
+  <%= f.select :rating, (0..5).map {|num| num.to_f } %>
+
+  <input type="hidden" name="rating[user_id]" value="<%= session[:user_id] %>">
+  <%= f.submit "Rate!" %>
+<% end %>
+<br>
 
 <% if session[:user_id] == @phrase.user.id %>
   <form class="" action="/phrases/<%=@phrase.id%>/edit" method="get">

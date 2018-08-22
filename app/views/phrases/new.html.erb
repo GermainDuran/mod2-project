@@ -16,7 +16,10 @@
       <%= select_tag "phrase[state_id]", options_from_collection_for_select(@region.states, :id, :abv) %><br>
 
       <%= label_tag "Phrase" %><br>
-      <%= text_area_tag "phrase[content]" %><br>
+      <%= text_field_tag "phrase[content]" %><br>
+
+      <%= label_tag "Describe your new phrase:" %><br>
+      <%= text_area_tag "phrase[description]" %>
 
       <%= link_to "Back", new_phrase_path %>
 

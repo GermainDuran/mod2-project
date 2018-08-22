@@ -1,5 +1,5 @@
 class PhrasesController < ApplicationController
-  before_action :set_phrase, only: [:new,:show,:edit,:update,:edit_state]
+  before_action :set_phrase, only: [:new,:show,:edit,:update,:edit_state,:rate]
   def index
     @phrases = Phrase.all
   end
@@ -16,7 +16,7 @@ class PhrasesController < ApplicationController
   end
 
   def create
-    @phrase = Phrase.new phrase_params
+    @phrase = Phrase.new phrase_params(:content,:state_id,:user_id,:description)
     if @phrase.save
       redirect_to phrase_path @phrase
     else
@@ -35,7 +35,7 @@ class PhrasesController < ApplicationController
 
   def update
 
-    if @phrase.update phrase_params
+    if @phrase.update phrase_params(:content,:state_id,:user_id, :description)
       redirect_to phrase_path @phrase
     else
       redirect_to edit_phrase_path @phrase
@@ -48,6 +48,12 @@ class PhrasesController < ApplicationController
     redirect_to
   end
 
+  def search
+    @query = params[:q]
+    @terms = Phrase.all.select {|phrase| phrase.content.include?(@query)}
+    render :search
+  end
+
   private
 
     def set_phrase
@@ -58,7 +64,7 @@ class PhrasesController < ApplicationController
       end
     end
 
-    def phrase_params
-      params.require(:phrase).permit(:content,:state_id,:user_id)
+    def phrase_params(*args)
+      params.require(:phrase).permit(*args)
     end
 end

@@ -4,8 +4,8 @@
 
 <% if !@user.phrases.empty? %>
   <ul>
-    <%= @user.phrases.each do |phrase| %>
-      <li><%= phrase.content %></li>
+    <% @user.phrases.each do |phrase| %>
+      <li><%= link_to phrase.content, phrase_path(phrase) %></li>
     <% end %>
   </ul>
 <% end %>
