@@ -1,17 +1,21 @@
 <h2><%= @phrase.content %></h2>
 <h4>Created by: <%= @phrase.user.username %></h4>
 
-<% @phrase.comments.each do |comment| %>
-  <p><%= comment.user_name %> says:</p>
-  <fieldset>
-    <%= comment.content %>
-  </fieldset>
-<% end %>
-
 <%= @phrase.region_name %>, <%= @phrase.state.name %>
 
 <% if session[:user_id] == @phrase.user.id %>
   <form class="" action="/phrases/<%=@phrase.id%>/edit" method="get">
     <input type="submit" name="" value="Edit Phrase">
   </form>
+<% end %>
+
+<% if session[:user_id] %>
+  <%= render "comments/new", comment: Comment.new %>
+<% end %>
+
+<% @phrase.comments.each do |comment| %>
+  <%= comment.user_name %> says:
+  <fieldset>
+    <%= comment.content %>
+  </fieldset>
 <% end %>

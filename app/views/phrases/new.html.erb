@@ -4,6 +4,8 @@
   <% if !@region %>
     <%= form_tag("/phrases/state_select", method: "post") do %>
       <%= select_tag "region", options_from_collection_for_select(Region.all, "id", "name") %>
+
+      <%= link_to "Back", user_path(User.find session[:user_id]) %>
       <%= submit_tag("Next") %>
     <% end %>
   <% else %>
@@ -19,6 +21,7 @@
       <%= link_to "Back", new_phrase_path %>
 
       <input type="hidden" name="phrase[user_id]" value="<%= session[:user_id] %>">
+
       <%= submit_tag("Create Phrase") %>
     <% end %>
   <% end %>

@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2018_08_20_204841) do
   create_table "phrases", force: :cascade do |t|
     t.string "content"
     t.integer "state_id"
+    t.float "rating"
     t.integer "user_id"
-    t.float "validity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

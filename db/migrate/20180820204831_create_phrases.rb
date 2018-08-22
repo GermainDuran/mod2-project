@@ -3,7 +3,7 @@ class CreatePhrases < ActiveRecord::Migration[5.2]
     create_table :phrases do |t|
       t.string :content
       t.integer :state_id
-      t.float :validity
+      t.float :rating
       t.integer :user_id
 
       t.timestamps

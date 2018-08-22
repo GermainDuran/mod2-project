@@ -70,4 +70,6 @@ state_list = [
   { :name => 'Wyoming', :abv => 'WY', :region_id => 4}
 ]
 
-State.create(state_list)
+state_list.each do |state|
+  State.create state
+end

@@ -1,0 +1,12 @@
+<fieldset>
+  <legend>Add Comment</legend>
+
+  <%= form_for comment do |f| %>
+    <%= f.text_area :content %><br>
+
+    <input type="hidden" name="comment[user_id]" value="<%= session[:user_id] %>">
+    <input type="hidden" name="comment[phrase_id]" value="<%= params[:id] %>">
+    <%= f.submit %>
+  <% end %>
+
+</fieldset>
