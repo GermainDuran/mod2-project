@@ -1,30 +1,30 @@
-<div class="outer-box">
+<div class="outer-box new-user">
 
   <h1 class="title">Sign Up</h1>
   <%= form_for @user do |f| %>
-    <p class="field">
-      <%= f.text_field :username, placeholder: "Username" %>
-    </p>
 
-    <div class="error_message">
+      <%= f.text_field :username, class: "field", placeholder: "Username" %>
+
+
+    <div class="error-message">
       <% if @user.errors[:username] %>
         <%= @user.errors[:username].first %>
       <% end %>
       <br>
     </div>
 
-    <p class="field">
-      <%= f.password_field :password, placeholder: "Password" %>
-    </p>
-    <div class="error_message">
+
+      <%= f.password_field :password, class: "field", placeholder: "Password" %>
+
+    <div class="error-message">
       <% if @user.errors[:password] %>
         <%= @user.errors[:password].first %>
       <% end %>
       <br>
     </div>
-    <p class="field">
-      <%= f.password_field :password_confirmation, placeholder:"Confirm Password" %>
-    </p>
+
+      <%= f.password_field :password_confirmation, class: "field", placeholder:"Confirm Password" %>
+
     <div class="error-message">
       <% if @user.errors[:password_confirmation] %>
         <%= @user.errors[:password_confirmation].first %>
@@ -32,6 +32,6 @@
       <br>
     </div>
 
-    <%= f.submit "Create New User",class:"button-text button" %>
+    <%= f.submit "Create New User",class:"button-text submit-button" %>
   <% end %>
 </div>

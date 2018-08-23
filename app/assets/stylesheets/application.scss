@@ -1,87 +1,102 @@
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
 
-html {
-  height: 100%;
-  overflow: hidden;
+// html {
+//   height: 100%;
+//   overflow: hidden;
+// }
+//
+// body {
+//   color: #fff;
+//   margin: 0;
+//   padding: 0;
+//   perspective: 1px;
+//   transform-style: preserve-3d;
+//   height: 100%;
+//   overflow-y: scroll;
+//   overflow-x: hidden;
+//
+// }
+//
+// header {
+//   box-sizing: border-box;
+//   // padding: 30vw 0 5vw;
+//   position: relative;
+//   transform-style: inherit;
+//   width:100%;
+// }
+//
+// header, header:before {
+//   background: 50% 50% / cover;
+// }
+//
+// header::before {
+//   bottom:100px;
+//   content: "";
+//   left:0;
+//   position: absolute;
+//   right:0;
+//   top:0;
+//   display: block;
+//   background-size: cover;
+//   transform-origin: center center 0;
+//   transform: translate2(-1px scale(2));
+//   z-index: -1 ;
+//   min-height: 100vh;
+// }
+//
+// header * {
+//   font-weight: normal;
+//   text-align: center;
+//   margin: 0;
+//   paddding: 1em 0;
+// }
+
+input.field {
+  width: 100%;
+  background-color: rgba(0,0,0,.5);
+  border-color: white;
+  color: rgb(0,186,190);
 }
 
-body {
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  perspective: 1px;
-  transform-style: preserve-3d;
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-
-}
-
-header {
-  box-sizing: border-box;
-  // padding: 30vw 0 5vw;
-  position: relative;
-  transform-style: inherit;
-  width:100%;
-}
-
-header, header:before {
-  background: 50% 50% / cover;
-}
-
-header::before {
-  bottom:100px;
-  content: "";
-  left:0;
-  position: absolute;
-  right:0;
-  top:0;
-  display: block;
-  background-size: cover;
-  transform-origin: center center 0;
-  transform: translate2(-1px scale(2));
-  z-index: -1 ;
-  min-height: 100vh;
-}
-
-header * {
-  font-weight: normal;
+.bottom-text {
   text-align: center;
-  margin: 0;
-  paddding: 1em 0;
+  color: rgb(255,144,100);
 }
 
-.field {
-
-}
-
- .outer-box {
-   position: absolute;
+.outer-box {
+   // position: absolute;
    padding: 20px 40px 40px 40px;
-   margin-top: 50px;
-   top: 20%;
-   left: 40%;
+   margin: 50px auto;
+   // margin-top: 50px;
+   // top: 20%;
+   // left: 40%;
    background-color: rgba(0,0,0,.5);
    align-items: center;
-   // color: rgb(192,192,192);
-   color: rgba(255,255,255,.7);
+   color: black;
    font-family: "PT Sans";
+   width: 40%;
+ }
+
+ .new-user {
+   width: 250px;
  }
 
  .title {
-   color: rgb(255,0,64)
+   color: rgb(255,0,64);
+   text-align: center;
  }
 
- .button {
+ input.submit-button {
    position: relative;
    width: 100%;
-   background-color: rga(3,13,23);
-   color: rga(3,13,23);
+   background: rgb(3,35,61);
+   border-radius: 25px;
+   -webkit-appearance: none;
  }
 
  .button-text{
-   color: rgb(0,186,190);
+   color: rgb(255,0,64);
    text-align: center;
  }
 
