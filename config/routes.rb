@@ -17,6 +17,6 @@ Rails.application.routes.draw do
 
   get '/search', to: "phrases#search", as: 'search'
 
-
+  get '/startup/index', to: "startup#index"
 
 end

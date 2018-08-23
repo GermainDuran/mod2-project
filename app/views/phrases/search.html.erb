@@ -5,3 +5,7 @@
     <li><%= link_to term.content, phrase_path(term) %></li>
   <% end %>
 </ul>
+
+<%= form_tag '/', method: 'get' do %>
+  <%= button_tag "Back!", class: "btn btn-default" %>
+<% end %>

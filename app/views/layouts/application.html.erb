@@ -7,13 +7,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      html,body {
+        background-image: url(https://images.unsplash.com/photo-1521794286957-348245b517a0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1a9aa3daf66dd88cc2ea4896dd786ca5&auto=format&fit=crop&w=1650&q=80);
+      }
+    </style>
+
   </head>
 
   <header>
-    <%= link_to "Home", '/' %>
+
   </header>
 
   <body>
+    <%= render 'navbar' %>
     <%= yield %>
   </body>
 </html>
