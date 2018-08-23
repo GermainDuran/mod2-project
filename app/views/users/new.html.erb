@@ -1,13 +1,30 @@
 <fieldset>
   <legend>Sign Up</legend>
   <%= form_for @user do |f| %>
-    <%= f.label "Choose a Username" %><br>
-    <%= f.text_field :username %><br>
+    <div class="error_message">
+      <%= f.label "Choose a Username" %><br>
+      <%= f.text_field :username %><% if @user.errors[:username] %>
+        <%= @user.errors[:username].first %>
+      <% end %>
+      <br>
+    </div>
 
-    <%= f.label "Choose a Password" %><br>
-    <%= f.password_field :password %><br>
-    <%= f.label "Confirm password" %> <br>
-    <%= f.password_field :password_confirmation %><br>
+    <div class="error_message">
+      <%= f.label "Choose a Password" %><br>
+      <%= f.password_field :password %>
+      <% if @user.errors[:password] %>
+        <%= @user.errors[:password].first %>
+      <% end %>
+      <br>
+    </div>
+
+    <div class="">
+      <%= f.label "Confirm password" %> <br>
+      <%= f.password_field :password_confirmation %><% if @user.errors[:password_confirmation] %>
+        <%= @user.errors[:password_confirmation].first %>
+      <% end %>
+      <br>
+    </div>
 
     <%= f.submit "Create New User" %>
   <% end %>
