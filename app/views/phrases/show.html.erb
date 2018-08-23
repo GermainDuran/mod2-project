@@ -4,7 +4,11 @@
   Description: <em><%= @phrase.description %></em>
 <% end %><br>
 
-<%= @phrase.region_name %>, <%= @phrase.state.name %><br>
+<p>Region: <%= @phrase.region_name %> <br>
+State: <%= @phrase.state.name %></p>
+<% if @phrase.area_or_city %>
+  <p>Area/city: <%= @phrase.area_or_city %></p>
+<% end %>
 <p>Rating:
 <% if @phrase.ratings.empty? %>
   <em>Not yet rated</em>
@@ -35,7 +39,7 @@ Give it a Rating:
 <% end %>
 
 <% @phrase.comments.each do |comment| %>
-  <%= comment.user_name %> says:
+  <%= link_to comment.user_name, user_path(comment.user) %> says:
   <fieldset>
     <%= comment.content %>
   </fieldset>

@@ -16,7 +16,7 @@ class PhrasesController < ApplicationController
   end
 
   def create
-    @phrase = Phrase.new phrase_params(:content,:state_id,:user_id,:description)
+    @phrase = Phrase.new phrase_params(:content,:state_id,:user_id,:description,:area_or_city)
     if @phrase.save
       redirect_to phrase_path @phrase
     else
@@ -35,7 +35,7 @@ class PhrasesController < ApplicationController
 
   def update
 
-    if @phrase.update phrase_params(:content,:state_id,:user_id, :description)
+    if @phrase.update phrase_params(:content,:state_id,:user_id, :description,:area_or_city)
       redirect_to phrase_path @phrase
     else
       redirect_to edit_phrase_path @phrase
