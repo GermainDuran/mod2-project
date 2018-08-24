@@ -1,46 +1,55 @@
-<h3>"<%= @phrase.content %>"</h3>
+<div class="outer-box">
 
-<% if @phrase.description %>
-  Description: <em><%= @phrase.description %></em>
-<% end %><br>
-
-<p>Region: <%= @phrase.region_name %> <br>
-State: <%= @phrase.state.name %></p>
-<% if @phrase.area_or_city %>
-  <p>Area/city: <%= @phrase.area_or_city %></p>
-<% end %>
-<p>Rating:
-<% if @phrase.ratings.empty? %>
-  <em>Not yet rated</em>
-<% else %>
-  <%= @phrase.avg_rating %> Stars
-<% end %></p>
-
-posted by: <%= @phrase.user.username %><br>
+  <h3 class="title">"<%= @phrase.content %>"</h3>
+  <div class="field">
 
 
-Give it a Rating:
-<%= form_for Rating.new,{url: "/phrases/#{@phrase.id}/rate", method: "post"} do |f| %>
-  <%= f.select :rating, (0..5).map {|num| num.to_f } %>
+    <% if @phrase.description %>
+      <span class="category">Description: </span><em><%= @phrase.description %></em>
+    <% end %><br>
 
-  <input type="hidden" name="rating[user_id]" value="<%= session[:user_id] %>">
-  <%= f.submit "Rate!" %>
-<% end %>
-<br>
+    <p><span class="category">Region: </span><%= @phrase.region_name %> <br>
+    <span class="category">State: </span><%= @phrase.state.name %></p>
+    <% if @phrase.area_or_city %>
+      <p><span class="category">Area/city: </span><%= @phrase.area_or_city %></p>
+    <% end %>
+    <p class="rating"><span class="category">Rating: </span>
+    <% if @phrase.ratings.empty? %>
+      <em>Not yet rated</em>
+    <% else %>
+      <%= @phrase.avg_rating %> Stars
+    <% end %></p>
 
-<% if session[:user_id] == @phrase.user.id %>
-  <form class="" action="/phrases/<%=@phrase.id%>/edit" method="get">
-    <input type="submit" name="" value="Edit Phrase">
-  </form>
-<% end %>
+    <span class="category">Submitted by: </span><%= @phrase.user.username %><br>
 
-<% if session[:user_id] %>
-  <%= render "comments/new", comment: Comment.new %>
-<% end %>
 
-<% @phrase.comments.each do |comment| %>
-  <%= link_to comment.user_name, user_path(comment.user) %> says:
-  <fieldset>
-    <%= comment.content %>
-  </fieldset>
-<% end %>
+    <p class="rating">Give it a Rating: </p>
+    <%= form_for Rating.new,{url: "/phrases/#{@phrase.id}/rate", method: "post"} do |f| %>
+
+        <%= f.select :rating, (0..5).map {|num| num.to_f }%>
+
+      <input type="hidden" name="rating[user_id]" value="<%= session[:user_id] %>">
+      <%= f.submit "Rate!", class:"edit-button" %>
+    <% end %>
+    <br>
+</div>
+  <% if session[:user_id] == @phrase.user.id %>
+    <form class="" action="/phrases/<%=@phrase.id%>/edit" method="get">
+      <input type="submit" name="" value="Edit Phrase" class="button-text edit-button">
+    </form>
+  <% end %>
+
+  <% if session[:user_id] %>
+    <%= render "comments/new", comment: Comment.new %>
+  <% end %>
+
+  <div class="comments-area comment-box">
+
+    <% @phrase.comments.each do |comment| %>
+      <%= link_to comment.user_name, user_path(comment.user) %> <span class="field">says: </span>
+
+        <p class="comment-content"> <%= comment.content %></p>
+
+    <% end %>
+  </div>
+</div>

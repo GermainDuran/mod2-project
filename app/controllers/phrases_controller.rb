@@ -56,7 +56,6 @@ class PhrasesController < ApplicationController
 
   def categorize
     @category = params[:category]
-    render :home
   end
 
   private

@@ -52,20 +52,159 @@
 //   paddding: 1em 0;
 // }
 
-input.field {
-  width: 100%;
-  background-color: rgba(0,0,0,.5);
-  border-color: white;
-  color: rgb(0,186,190);
+
+
+h5 {
+  color: rgb(255,0,64);
 }
+
+a.link-button {
+  padding: 1px 7px;
+  border-style: solid;
+  border-width: thin;
+  border-color: white;
+}
+
+div.outer-box li::before {
+  content: "• ";
+  margin-right:3px;
+  margin-left: -10px;
+  color: rgb(255,0,64);
+}
+
+// .bottom-form {
+//   position: relative;
+//   width: 59%
+// }
 
 .bottom-text {
   text-align: center;
   color: rgb(255,144,100);
 }
 
+.category-button {
+  margin-top: 20px;
+}
+
+div.bottom-row {
+  position:absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 20px;
+}
+
+form.button-box {
+  position: relative;
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button-box {
+  position: relative;
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button-text{
+  color: rgb(255,0,64);
+  text-align: center;
+}
+
+.category {
+  color: rgb(255,144,100);
+}
+
+.category-box {
+  width: 75%;
+}
+
+.category-page-title {
+  text-align: center;
+  font-family: "Montserrat";
+}
+
+.center {
+  text-align: center;
+}
+
+.comment-box {
+margin: 20px 0;
+}
+
+.comments-area {
+  border-style: solid;
+  border-width: thin;
+  border-radius: 25px;
+  border-color: white;
+  padding: 20px;
+}
+
+.comment-content {
+  color: white;
+}
+
+.edit-button {
+  position: relative;
+  background: rgb(3,35,61);
+  border-radius: 25px;
+}
+.error-message {
+   color: red;
+   font-style: italic;
+ }
+
+.field {
+  width: 100%;
+  background-color: rgba(0,0,0,.5);
+  border-color: white;
+  color: rgb(0,186,190);
+  border-radius: 15px;
+
+}
+
+.home-page-text {
+  text-align: center;
+  color: rgb(0,153,208);
+  font-family: "Montserrat";
+}
+
+input.field {
+  text-align:center;
+}
+
+.login-box {
+  width: 40%;
+  max-width: 400px;
+}
+
+.login-button {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.new-user {
+  width: 250px;
+}
+
+.new-phrase-button {
+  position:relative;
+  width: 50%;
+  // margin: 0 auto;
+}
+
+input.new-user-button {
+  // position: relative;
+  display: inline-block;
+  width: 75%;
+  margin: 0 auto;
+}
 .outer-box {
-   // position: absolute;
+   position: relative;
    padding: 20px 40px 40px 40px;
    margin: 50px auto;
    // margin-top: 50px;
@@ -75,32 +214,79 @@ input.field {
    align-items: center;
    color: black;
    font-family: "PT Sans";
-   width: 40%;
+   border-radius: 25px;
+   min-width: 250px;
  }
 
- .new-user {
-   width: 250px;
- }
+.profile-title {
+  color: rgb(255,144,100);
+  text-align: center;
+}
 
+.profile-box {
+
+  width: 75%;
+  height: 500px;
+}
+
+.profile-button{
+  display:flex;
+  justify-content: center;
+  width: 50%;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.phrase-show-text {
+  color: rgb(88, 150,153);
+}
+
+.row:after {
+  content: ".";
+  display: table;
+  clear: both;
+
+}
+
+.column {
+  float:left;
+  width:50%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.left-column{
+  left:50%;
+}
+
+.right-column {
+  right:50%;
+}
+
+.select-rating{
+  color: yellow;
+}
+
+.submit-button {
+  position: relative;
+  background: rgb(3,35,61);
+  border-radius: 25px;
+  // width: 100%;
+  -webkit-appearance: none;
+}
+.subtitle {
+  color: rgb(255,144,100);
+}
  .title {
    color: rgb(255,0,64);
    text-align: center;
+   font-family: "Montserrat";
  }
 
- input.submit-button {
-   position: relative;
-   width: 100%;
-   background: rgb(3,35,61);
-   border-radius: 25px;
-   -webkit-appearance: none;
+ .rating {
+   color: yellow;
  }
 
- .button-text{
-   color: rgb(255,0,64);
-   text-align: center;
- }
-
- .error-message {
-   color: red;
-   font-style: italic;
+ .user-title-box {
+   width: 75%;
  }

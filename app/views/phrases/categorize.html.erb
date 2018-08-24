@@ -1,0 +1,25 @@
+
+<div class="outer-box category-box">
+
+
+  <h1 class="center"><span class="category-page-title title">Categorizing by: </span><span class="home-page-text"><%= @category.capitalize %></span></h1>
+
+  <% if @category == "region" %>
+      <% Region.all.each do |region| %>
+        <span class="category"><%= region.name %></span><br>
+        <% region.phrases.each do |phrase|%>
+          <li><%= link_to phrase.content, phrase_path(phrase) %></li>
+        <% end %>
+      <% end %>
+  <% else %>
+    <% State.all.each do |state| %>
+      <span class="category"><%= state.name %></span><br>
+      <% state.phrases.each do |phrase|%>
+        <li><%= link_to phrase.content, phrase_path(phrase) %></li>
+      <% end %>
+    <% end %>
+  <% end %>
+  <div class="button-box">
+    <a href="/" class="link-button button-text submit-button category-button">Undo Categorization</a>
+  </div>
+</div>

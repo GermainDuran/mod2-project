@@ -4,23 +4,23 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  
-  <body>
 
-    <% if !@category %>
-      <div class="">
-        <%= form_tag '/phrases/categorize',method: "post" do %>
-          <p>Categorize Terms by:</p>
-          <select class="" name="category">
-            <option value="region">Region</option>
-            <option value="state">State</option>
-          </select>
-          <%= submit_tag "Categorize!" %>
-        <% end %>
+  <body>
+    <div class="outer-box">
+
+        <h1 class="home-page-text">Welcome To My App!</h1>
+
+        <div class="">
+          <%= form_tag '/phrases/categorize',method: "post" do %>
+            <h4 class="subtitle">Categorize Terms by:</h4>
+            <select class="" name="category">
+              <option value="region">Region</option>
+              <option value="state">State</option>
+            </select>
+            <%= submit_tag "Categorize!", class:"submit-button button-text" %>
+          <% end %>
+        </div>
       </div>
 
-    <% else %>
-      <%= render 'categorize' %>
-    <% end %>
   </body>
 </html>

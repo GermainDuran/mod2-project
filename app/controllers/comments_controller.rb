@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
 
   def create
-    @comment = Comment.create comment_params
-    byebug
+    @comment = Comment.new comment_params
+    if !@comment.save
+      flash[:message] = @comment.errors.full_messages.first
+    end
     redirect_to phrase_path @comment.phrase
   end
 

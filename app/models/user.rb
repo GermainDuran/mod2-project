@@ -15,4 +15,6 @@ class User < ApplicationRecord
   validates_presence_of :password_confirmation, :message => "Confirmation should match password"
 
   attr_accessor :password_confirmation
+
+  
 end

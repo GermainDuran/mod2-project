@@ -1,17 +1,40 @@
-<h1><%= @user.username %></h1>
+<div class="outer-box user-title-box">
+  <h1 class="title"><%= @user.username %></h1>
 
-<h3>Submitted Phrases</h3>
+</div>
 
-<% if !@user.phrases.empty? %>
-  <ul>
-    <% @user.phrases.each do |phrase| %>
-      <li><%= link_to phrase.content, phrase_path(phrase) %></li>
+<div class="outer-box profile-box row">
+
+  <div class="left-column column">
+
+
+    <h3 class="subtitle">Submitted Phrases</h3>
+
+    <% if !@user.phrases.empty? %>
+      <ul>
+        <% @user.phrases.each do |phrase| %>
+          <li><%= link_to phrase.content, phrase_path(phrase) %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
 
-<% if session[:user_id] == @user.id %>
-  <form action="/phrases/new" method="get">
-    <input type="submit" value="New Phrase">
-  </form>
-<% end %>
+
+  </div>
+
+  <div class="right-column column">
+    <h3 class="subtitle">Commented Posts</h3>
+    <ul>
+      <% @user.comments.map{|comment| comment.phrase }.uniq.each do |phrase| %>
+        <li class="bullets"><%= link_to phrase.content, phrase_path(phrase) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div  class="bottom-row">
+    <% if session[:user_id] == @user.id %>
+      <div class="button-box">
+        <a href="/phrases/new" class="link-button submit-button button-text">Create New Phrase Submission</a>
+      </div>
+    <% end %>
+  </div>
+</div>

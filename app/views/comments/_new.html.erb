@@ -1,12 +1,12 @@
-<fieldset>
-  <legend>Add Comment</legend>
+<h3 class="subtitle">Add Comment</h3>
 
-  <%= form_for comment do |f| %>
-    <%= f.text_area :content %><br>
+<% if flash[:messages] %>
+  <p class="error-message"> <%= flash[:message] %></p>
+<% end %>
 
-    <input type="hidden" name="comment[user_id]" value="<%= session[:user_id] %>">
-    <input type="hidden" name="comment[phrase_id]" value="<%= params[:id] %>">
-    <%= f.submit %>
-  <% end %>
-
-</fieldset>
+<%= form_for comment do |f| %>
+  <%= f.text_area :content, class:"field comment-box" %><br>
+  <input type="hidden" name="comment[user_id]" value="<%= session[:user_id] %>">
+  <input type="hidden" name="comment[phrase_id]" value="<%= params[:id] %>">
+  <%= f.submit class:"button-text edit-button"%>
+<% end %>
