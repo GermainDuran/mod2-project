@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   patch '/phrases/:id/edit_state', to: "phrases#edit_state"
   post '/phrases/:id/rate', to: "ratings#rate"
   delete '/logout', to: "sessions#logout"
+  delete '/comments/:id', to: "comments#destroy", as: 'delete_comment'
 
-  resources :comments, :phrases, :users
+  resources :comments, except: [:delete]
+  resources :phrases, :users
   resources :states, only: [:index,:show]
   resources :regions, only: [:index,:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

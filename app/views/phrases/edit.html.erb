@@ -1,29 +1,35 @@
-<fieldset>
-  <legend>Edit Phrase</legend>
-  <% if !@region %>
-    <%= form_tag("/phrases/#{@phrase.id}/edit_state", method: "patch") do %>
-      <%= select_tag "region", options_from_collection_for_select(Region.all, "id", "name", @phrase.region_id) %>
-      <%= link_to "Back", phrase_path(@phrase) %>
-      <%= submit_tag("Next") %>
-    <% end %>
+<div class="outer-box category-box">
+
+  <h3 class="category-page-title new-phrase">Edit Your Phrase!</h3>
+    <% if !@region %>
+    <div class="center-box">
+        <%= form_tag("/phrases/#{@phrase.id}/edit_state", method: "patch") do %>
+          <%= select_tag "region", options_from_collection_for_select(Region.all, "id", "name"),class:"field" %><br>
+
+          <%= link_to "Back", user_path(User.find session[:user_id]), class:"submit-button button-text link-button" %>
+          <%= submit_tag("Next",class:"submit-button button-text") %>
+        <% end %>
+    </div>
   <% else %>
-    <p>Region: <%= @region.name %></p>
+      <p><span class="category">Region: </span><span class="phrase-show-text"><%= @region.name %></span></p>
 
-    <%= form_for @phrase do |f| %>
-      <%= f.label "Edit State" %><br>
-      <%= f.collection_select :state_id, @region.states, :id, :abv %><br>
+      <%= form_for @phrase do |f| %>
 
-      <%= f.label "Edit Phrase" %><br>
-      <%= f.text_field :content %><br>
+        <%= f.label "Edit State?",class:"category" %><br>
+        <%= f.collection_select :state_id, @region.states, :id, :abv, class:"field" %><br>
 
-      <%= f.label "Edit Description" %><br>
-      <%= f.text_area :description %><br>
+        <%= f.label "Edit Phrase", class:"category" %><br>
+        <%= f.text_field :content,class:"field new-phrase-field" %><br>
 
-      <%= f.label "Area/City" %><br>
-      <%= f.text_area :area_or_city%>
+        <%= f.label "Edit Description", class:"category" %><br>
+        <%= f.text_area :description,class:"field new-phrase-field" %><br>
 
-      <%= f.submit %>
-    <% end %>
+        <%= f.label "Area/City", class:"category" %><br>
+        <%= f.text_area :area_or_city, placeholder:"E.g. Chicago, NorCal, Pittsburgh",class:"field new-phrase-field" %><br>
 
+        <%= link_to "Back", new_phrase_path, class:"submit-button button-text link-button" %>
+
+        <%= f.submit class:"submit-button button-text" %>
+      <% end %>
   <% end %>
-</fieldset>
+</div>

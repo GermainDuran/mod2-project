@@ -1,11 +1,15 @@
-<h4>Phrases that match your query of: '<%= @query %>'</h4>
+<div class="outer-box search-box">
 
-<ul>
-  <% @terms.each do |term| %>
-    <li><%= link_to term.content, phrase_path(term) %></li>
+
+  <h4 class="search-title">Phrases that match your query of: " <span class="search-query"><%= @query %></span> "</h4>
+
+  <ul>
+    <% @terms.each do |term| %>
+      <li><%= link_to term.content, phrase_path(term) %></li>
+    <% end %>
+  </ul>
+
+  <%= form_tag '/', method: 'get' do %>
+    <%= button_tag "Back!", class: "edit-button" %>
   <% end %>
-</ul>
-
-<%= form_tag '/', method: 'get' do %>
-  <%= button_tag "Back!", class: "btn btn-default" %>
-<% end %>
+</div>

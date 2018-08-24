@@ -8,6 +8,13 @@ class CommentsController < ApplicationController
     redirect_to phrase_path @comment.phrase
   end
 
+  def destroy
+    comment = Comment.find params[:id]
+    @phrase = comment.phrase
+    comment.destroy
+    redirect_to phrase_path @phrase
+  end
+
   private
 
     def set_comment

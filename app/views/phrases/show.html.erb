@@ -6,7 +6,7 @@
       <span class="category">Description: </span><em><span class="phrase-show-text"><%= @phrase.description %></span></em>
     <% end %><br>
 
-    <p><span class="category">Region: </span><%= @phrase.region_name %> <br>
+    <p><span class="category">Region: </span><span class="phrase-show-text"><%= @phrase.region_name %></span> <br>
     <span class="category">State: </span><span class="phrase-show-text"><%= @phrase.state.name %></span></p>
     <% if @phrase.area_or_city %>
       <p><span class="category">Area/city: </span><span class="phrase-show-text"><%= @phrase.area_or_city %></span></p>
@@ -48,10 +48,16 @@
   <% end %>
 
   <div class="comments-area comment-box">
-
-    <% @phrase.comments.each do |comment| %>
-      <%= link_to comment.user_name, user_path(comment.user) %> <span class="field">says: </span>
-        <p class="comment-content"> <%= comment.content %></p>
-    <% end %>
+      <% @phrase.comments.each do |comment| %>
+        <div class="comment-content-area">
+          <%= link_to comment.user_name, user_path(comment.user) %> <span class="field">says: </span>
+          <p class="comment-content"> <%= comment.content %></p>
+        </div>
+        <div class="button-area">
+          <% if session[:user_id] == comment.user.id %>
+              <%= link_to "Delete Comment", delete_comment_path, method: "delete", class:"edit-button link-button" %>
+          <% end %>
+        </div>
+      <% end %>
   </div>
 </div>

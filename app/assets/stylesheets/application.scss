@@ -140,9 +140,22 @@ form.button-box {
   margin: 30px auto 20px;
 }
 
+div.left-box {
+  text-align:center
+}
+
 .comment-box {
   margin: 20px 0;
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
+}
+
+.comment-content-area {
+  // margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.button-area {
+  margin-bottom: 15px;
 }
 
 .comments-area {
@@ -178,7 +191,8 @@ form.button-box {
 }
 
 select.field{
-  width: 50%;
+  margin-top: -10px;
+  width: 25%;
 }
 
 #phrase_state_id {
@@ -320,6 +334,20 @@ input.new-user-button {
 
 .right-column {
   right:50%;
+}
+
+.search-box {
+  width: 40%;
+}
+
+.search-query {
+  color: rgb(255,144,100);
+}
+
+.search-title {
+  color: rgb(255,0,64);
+  text-align: left;
+  font-family: "Montserrat";
 }
 
 .select-rating{
