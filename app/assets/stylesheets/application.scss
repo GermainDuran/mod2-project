@@ -59,7 +59,7 @@ h5 {
 }
 
 a.link-button {
-  padding: 1px 7px;
+  padding: 3px 7px;
   border-style: solid;
   border-width: thin;
   border-color: white;
@@ -68,7 +68,7 @@ a.link-button {
 div.outer-box li::before {
   content: "• ";
   margin-right:3px;
-  margin-left: -10px;
+  margin-left: -20px;
   color: rgb(255,0,64);
 }
 
@@ -118,6 +118,10 @@ form.button-box {
   color: rgb(255,144,100);
 }
 
+.category-with-margins {
+  margin-bottom: 20px;
+}
+
 .category-box {
   width: 75%;
 }
@@ -131,15 +135,21 @@ form.button-box {
   text-align: center;
 }
 
+.center-box {
+  text-align: center;
+  margin: 30px auto 20px;
+}
+
 .comment-box {
-margin: 20px 0;
+  margin: 20px 0;
+  padding: 20px;
 }
 
 .comments-area {
   border-style: solid;
   border-width: thin;
   border-radius: 25px;
-  border-color: white;
+  border-color: rgb(255,0,64);
   padding: 20px;
 }
 
@@ -151,6 +161,8 @@ margin: 20px 0;
   position: relative;
   background: rgb(3,35,61);
   border-radius: 25px;
+  color: yellow;
+  text-align: center;
 }
 .error-message {
    color: red;
@@ -163,13 +175,45 @@ margin: 20px 0;
   border-color: white;
   color: rgb(0,186,190);
   border-radius: 15px;
+}
 
+select.field{
+  width: 50%;
+}
+
+#phrase_state_id {
+  width: 25%;
+  background-color: rgba(0,0,0,.5);
+  border-color: white;
+  color: rgb(0,186,190);
+  border-radius: 15px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.category-box .field {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .home-page-text {
   text-align: center;
   color: rgb(0,153,208);
   font-family: "Montserrat";
+}
+
+.inline-div {
+  display: flex;
+}
+
+.inline-form-left {
+  float:right;
+  margin-left: auto;
+}
+
+.inline-form-right {
+  float:left;
+  margin-right: auto;
 }
 
 input.field {
@@ -191,10 +235,20 @@ input.field {
   width: 250px;
 }
 
+.new-phrase {
+  color: rgb(0,153,208);
+}
+
 .new-phrase-button {
   position:relative;
   width: 50%;
   // margin: 0 auto;
+}
+
+div .new-phrase-field {
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 5px;
 }
 
 input.new-user-button {
@@ -241,6 +295,11 @@ input.new-user-button {
   color: rgb(88, 150,153);
 }
 
+.phrase-show-box {
+  width: 75%;
+  min-width: 750px;
+}
+
 .row:after {
   content: ".";
   display: table;
@@ -271,11 +330,14 @@ input.new-user-button {
   position: relative;
   background: rgb(3,35,61);
   border-radius: 25px;
+  border-color: white;
+  margin-bottom: 4px;
   // width: 100%;
   -webkit-appearance: none;
 }
 .subtitle {
   color: rgb(255,144,100);
+  text-align: center;
 }
  .title {
    color: rgb(255,0,64);
@@ -287,6 +349,22 @@ input.new-user-button {
    color: yellow;
  }
 
+ #rating_rating {
+   width: 20%;
+   background-color: rgba(0,0,0,.5);
+   border-color: white;
+   // color: rgb(0,186,190);
+   color: yellow;
+   border-radius: 15px;
+ }
+
  .user-title-box {
    width: 75%;
+ }
+
+ a:link.user-link {
+   color: rgb(143,168,210);
+ }
+ a:hover.user-link {
+   color: rgb(238, 193,224);
  }

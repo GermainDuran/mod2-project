@@ -20,6 +20,7 @@ class PhrasesController < ApplicationController
     if @phrase.save
       redirect_to phrase_path @phrase
     else
+      flash[:messages] = @phrase.errors.full_messages
       redirect_to new_phrase_path
     end
   end
@@ -42,10 +43,11 @@ class PhrasesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     phrase = Phrase.find params[:id]
+    @user = phrase.user
     phrase.destroy
-    redirect_to
+    redirect_to user_path @user
   end
 
   def search

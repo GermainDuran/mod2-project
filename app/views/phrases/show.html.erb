@@ -1,17 +1,15 @@
-<div class="outer-box">
+<div class="outer-box phrase-show-box">
 
   <h3 class="title">"<%= @phrase.content %>"</h3>
-  <div class="field">
-
-
+  <div class="">
     <% if @phrase.description %>
-      <span class="category">Description: </span><em><%= @phrase.description %></em>
+      <span class="category">Description: </span><em><span class="phrase-show-text"><%= @phrase.description %></span></em>
     <% end %><br>
 
     <p><span class="category">Region: </span><%= @phrase.region_name %> <br>
-    <span class="category">State: </span><%= @phrase.state.name %></p>
+    <span class="category">State: </span><span class="phrase-show-text"><%= @phrase.state.name %></span></p>
     <% if @phrase.area_or_city %>
-      <p><span class="category">Area/city: </span><%= @phrase.area_or_city %></p>
+      <p><span class="category">Area/city: </span><span class="phrase-show-text"><%= @phrase.area_or_city %></span></p>
     <% end %>
     <p class="rating"><span class="category">Rating: </span>
     <% if @phrase.ratings.empty? %>
@@ -20,23 +18,29 @@
       <%= @phrase.avg_rating %> Stars
     <% end %></p>
 
-    <span class="category">Submitted by: </span><%= @phrase.user.username %><br>
+    <span class="category">Submitted by: </span><span class="user-link"><%= link_to @phrase.user.username, user_path(@phrase.user) %></span><br>
 
 
     <p class="rating">Give it a Rating: </p>
     <%= form_for Rating.new,{url: "/phrases/#{@phrase.id}/rate", method: "post"} do |f| %>
 
-        <%= f.select :rating, (0..5).map {|num| num.to_f }%>
+        <%= f.select :rating, (0..5).map {|num| num.to_f }, class:"field"%>
 
       <input type="hidden" name="rating[user_id]" value="<%= session[:user_id] %>">
-      <%= f.submit "Rate!", class:"edit-button" %>
+      <%= f.submit "Rate!", class:"submit-button button-text" %>
     <% end %>
     <br>
 </div>
   <% if session[:user_id] == @phrase.user.id %>
-    <form class="" action="/phrases/<%=@phrase.id%>/edit" method="get">
-      <input type="submit" name="" value="Edit Phrase" class="button-text edit-button">
-    </form>
+    <div class="inline-div">
+      <form class="inline-form-left" action="/phrases/<%=@phrase.id%>/edit" method="get">
+        <input type="submit" name="" value="Edit Phrase" class="button-text edit-button">
+      </form>
+
+      <%= form_tag "/phrases/#{@phrase.id}", method:"delete",class:"inline-form-right" do %>
+        <%= submit_tag "Delete Phrase", class:"edit-button" %>
+      <% end %>
+    </div>
   <% end %>
 
   <% if session[:user_id] %>
@@ -47,9 +51,7 @@
 
     <% @phrase.comments.each do |comment| %>
       <%= link_to comment.user_name, user_path(comment.user) %> <span class="field">says: </span>
-
         <p class="comment-content"> <%= comment.content %></p>
-
     <% end %>
   </div>
 </div>

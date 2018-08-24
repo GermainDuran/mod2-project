@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include ActiveModel::Validations
-  validates_with UsersHelper::NewUserValidator
+  # validates_with UsersHelper::NewUserValidator
 
   has_many :phrases
   has_many :comments
@@ -16,5 +16,5 @@ class User < ApplicationRecord
 
   attr_accessor :password_confirmation
 
-  
+
 end

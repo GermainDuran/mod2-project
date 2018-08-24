@@ -1,34 +1,38 @@
-<h1>Create a New Phrase</h1>
+<div class="outer-box category-box">
 
-<fieldset>
-  <% if !@region %>
-    <%= form_tag("/phrases/state_select", method: "post") do %>
-      <%= select_tag "region", options_from_collection_for_select(Region.all, "id", "name") %>
+  <h3 class="category-page-title new-phrase">Create a New Phrase!</h3>
 
-      <%= link_to "Back", user_path(User.find session[:user_id]) %>
-      <%= submit_tag("Next") %>
+    <% if !@region %>
+      <div class="center-box">
+        <%= form_tag("/phrases/state_select", method: "post") do %>
+          <%= select_tag "region", options_from_collection_for_select(Region.all, "id", "name"),class:"field" %><br>
+
+          <%= link_to "Back", user_path(User.find session[:user_id]), class:"submit-button button-text link-button" %>
+          <%= submit_tag("Next",class:"submit-button button-text") %>
+        <% end %>
+      </div>
+    <% else %>
+      <p><span class="category">Selected region: </span><span class="phrase-show-text"><%= @region.name %></span></p>
+
+      <%= form_for Phrase.new do |f| %>
+
+        <%= f.label "Which state is it used in?",class:"category" %><br>
+        <%= f.collection_select :state_id, @region.states, :id, :abv, class:"field" %><br>
+
+        <%= f.label "Enter new Phrase", class:"category" %><br>
+        <%= f.text_field :content,class:"field new-phrase-field" %><br>
+
+        <%= f.label "Describe your new phrase", class:"category" %><br>
+        <%= f.text_area :description,class:"field new-phrase-field" %><br>
+
+        <%= f.label "Optional: Provide an Area or City", class:"category" %><br>
+        <%= f.text_area :area_or_city, placeholder:"E.g. Chicago, NorCal, Pittsburgh",class:"field new-phrase-field" %><br>
+
+        <input type="hidden" name="phrase[user_id]" value="<%= session[:user_id] %>">
+
+        <%= link_to "Back", new_phrase_path, class:"submit-button button-text link-button" %>
+
+        <%= f.submit class:"submit-button button-text" %>
+      <% end %>
     <% end %>
-  <% else %>
-    <p>Selected region: <%= @region.name %></p>
-
-    <%= form_for Phrase.new do |f| %>
-      <%= f.label "Which state is it used in?" %><br>
-      <%= f.collection_select :state_id, @region.states, :id, :abv %><br>
-
-      <%= f.label "Enter new Phrase" %><br>
-      <%= f.text_field :content %><br>
-
-      <%= f.label "Describe your new phrase" %><br>
-      <%= f.text_area :description %><br>
-
-      <%= f.label "Optional: Provide an Area or City" %><br>
-      <%= f.text_area :area_or_city, placeholder:"E.g. Chicago, NorCal, Pittsburgh" %><br>
-
-      <input type="hidden" name="phrase[user_id]" value="<%= session[:user_id] %>">
-      <%= f.submit %>
-    <% end %>
-    <%= form_tag '/phrases/new', method: "get" do %>
-      <%= submit_tag "Back" %>
-    <% end %>
-  <% end %>
-</fieldset>
+</div>

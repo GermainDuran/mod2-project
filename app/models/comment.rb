@@ -9,7 +9,7 @@ class Comment < ApplicationRecord
   end
 
   def check_length
-    if content.length > 5
+    if !content.nil? && content.length > 250
       errors.add(:content, "Comment cannot be greater than 250 characters in length!")
     end
   end
