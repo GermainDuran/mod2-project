@@ -54,9 +54,7 @@
           <p class="comment-content"> <%= comment.content %></p>
         </div>
         <div class="button-area">
-          <% if session[:user_id] == comment.user.id %>
-              <%= link_to "Delete Comment", delete_comment_path, method: "delete", class:"edit-button link-button" %>
-          <% end %>
+          
         </div>
       <% end %>
   </div>

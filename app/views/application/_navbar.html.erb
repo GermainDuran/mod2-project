@@ -21,7 +21,7 @@
         <li><a href="/logout" data-method="delete" rel="nofollow"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
         <li>
-          <a href="/users/<%= session[:user_id] %>">Profile</a>
+          <a href="/users/<%= session[:user_id] %>"><%= User.find(session[:user_id]).username %></a>
         </li>
       <% end %>
     </ul>
