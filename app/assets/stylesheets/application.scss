@@ -109,11 +109,6 @@ form.button-box {
   justify-content: center;
 }
 
-.button-text{
-  color: rgb(255,0,64);
-  text-align: center;
-}
-
 .category {
   color: rgb(255,144,100);
 }
@@ -144,10 +139,7 @@ div.left-box {
   text-align:center
 }
 
-.comment-box {
-  margin: 20px 0;
-  padding: 10px 20px 20px 20px;
-}
+
 
 .comment-content-area {
   // margin-top: 10px;
@@ -165,9 +157,12 @@ div.left-box {
   border-color: rgb(255,0,64);
   padding: 20px;
 }
-
 .comment-content {
   color: white;
+}
+.comment-box {
+  margin: 20px 0;
+  padding: 10px 20px 20px 20px;
 }
 
 .edit-button {
@@ -189,7 +184,6 @@ div.left-box {
   color: rgb(0,186,190);
   border-radius: 15px;
 }
-
 select.field{
   margin-top: -10px;
   width: 25%;
@@ -234,6 +228,11 @@ input.field {
   text-align:center;
 }
 
+h3.left-align {
+  font-size: 16pt;
+  text-align: left;
+}
+
 .login-box {
   width: 40%;
   max-width: 400px;
@@ -271,19 +270,20 @@ input.new-user-button {
   width: 75%;
   margin: 0 auto;
 }
+
 .outer-box {
-   position: relative;
    padding: 20px 40px 40px 40px;
    margin: 50px auto;
-   // margin-top: 50px;
-   // top: 20%;
-   // left: 40%;
    background-color: rgba(0,0,0,.5);
    align-items: center;
-   color: black;
    font-family: "PT Sans";
    border-radius: 25px;
    min-width: 250px;
+ }
+
+ .outer-box.home-box {
+   background-color: rgba(0,0,0,.75);
+   width: 75%;
  }
 
 .profile-title {
@@ -360,9 +360,13 @@ input.new-user-button {
   border-radius: 25px;
   border-color: white;
   margin-bottom: 4px;
-  // width: 100%;
   -webkit-appearance: none;
 }
+.button-text{
+  color: rgb(255,0,64);
+  text-align: center;
+}
+
 .subtitle {
   color: rgb(255,144,100);
   text-align: center;
