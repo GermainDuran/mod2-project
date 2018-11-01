@@ -1,24 +1,12 @@
-# README
+# myJargon
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+myJargon is an application where users can share different phrases and words that are common within specific regions of the United States. They provide the phrase/word, describe/define it, and provide context on where it is commonly used.
 
-Things you may want to cover:
+### Installation 
 
-* Ruby version
+Within the terminal and the root directory of this repo, run: 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bundle install
+rails s
+```
